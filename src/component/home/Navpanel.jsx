@@ -8,7 +8,9 @@ function Navpanel() {
     loginPage && (
       <div className="h-20 w-full text-white flex justify-between items-center px-11 bg-zinc-950 border-b border-zinc-700 ">
         <Link to="/">
-          <h1 className="text-3xl">Grab It🛒</h1>
+          <h1 className="text-3xl font-extrabold bg-linear-to-r from-orange-500 to-yellow-400 bg-clip-text text-transparent">
+            Grab It🛒
+          </h1>
         </Link>
         <div className="h-auto  rounded-2xl flex items-center gap-3 relative">
           <input

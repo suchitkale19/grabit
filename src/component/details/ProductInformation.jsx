@@ -5,11 +5,12 @@ function ProductInformation({ product }) {
         {product.brand ? product.brand + "'s" : ""} {product.title} |{" "}
         {product.category}
       </h1>
-      <p>
-        ⭐ <b>{product.rating}</b>/5
+      <p className="text-xl">
+        {"⭐".repeat(product.rating)}☆ {product.rating} (
+        {Math.round(product.price * 10)} ratings)
       </p>
 
-      <div className="flex items-center gap-3 text-2xl font-bold">
+      <div className="flex items-center gap-3 text-3xl text-amber-500 font-bold">
         ₹ {Math.round(product.price * 90)}{" "}
         <h2 className="text-sm text-zinc-400">
           M.R.P:
