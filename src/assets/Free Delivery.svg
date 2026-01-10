@@ -1,0 +1,59 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 120 120"
+  width="80"
+  height="80"
+  fill="#FFFFFF"
+>
+  <!-- Outer Circle -->
+  <circle
+    cx="60"
+    cy="60"
+    r="56"
+    fill="none"
+    stroke="#555"
+    stroke-width="6"
+  />
+
+  <!-- Truck Body -->
+  <rect
+    x="26"
+    y="48"
+    width="44"
+    height="20"
+    rx="2"
+    fill="none"
+    stroke="#555"
+    stroke-width="5"
+  />
+
+  <!-- FREE text inside truck -->
+  <text
+    x="48"
+    y="62"
+    text-anchor="middle"
+    font-size="10"
+    font-weight="bold"
+    fill="#555"
+    font-family="Arial, sans-serif"
+  >
+    FREE
+  </text>
+
+  <!-- Truck Front -->
+  <path
+    d="M70 48 h12 l8 8 v12 h-20 z"
+    fill="none"
+    stroke="#555"
+    stroke-width="5"
+  />
+
+  <!-- Wheels -->
+  <circle cx="38" cy="72" r="5" fill="#555" />
+  <circle cx="74" cy="72" r="5" fill="#555" />
+
+  <!-- Speed Lines -->
+  <line x1="16" y1="54" x2="26" y2="54" stroke="#555" stroke-width="5" />
+  <line x1="12" y1="60" x2="26" y2="60" stroke="#555" stroke-width="5" />
+  <line x1="18" y1="66" x2="26" y2="66" stroke="#555" stroke-width="5" />
+</svg>
