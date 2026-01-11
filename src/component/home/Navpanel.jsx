@@ -3,7 +3,8 @@ import ButtonSvg from "./ButtonSvg";
 import { Link } from "react-router-dom";
 import { DataContext } from "/src/DataContext.jsx";
 function Navpanel() {
-  const { query, setQuery, loginPage, setLoginPage } = useContext(DataContext);
+  const { query, login, setQuery, loginPage, setLoginPage } =
+    useContext(DataContext);
   return (
     loginPage && (
       <div className="h-20 w-full text-white flex justify-between items-center px-11 bg-zinc-950 border-b border-zinc-700 ">
@@ -36,14 +37,18 @@ function Navpanel() {
         </div>
 
         <div className="flex gap-6 text-lg ">
-          <Link to="/login" onClick={() => setLoginPage(false)}>
-            <ButtonSvg
-              name={"Login"}
-              path={
-                "M480-120v-80h280v-560H480v-80h280q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H480Zm-80-160-55-58 102-102H120v-80h327L345-622l55-58 200 200-200 200Z"
-              }
-            />
-          </Link>
+          {login ? (
+            <ButtonSvg name={"wow"} />
+          ) : (
+            <Link to="/login" onClick={() => setLoginPage(false)}>
+              <ButtonSvg
+                name={"Login"}
+                path={
+                  "M480-120v-80h280v-560H480v-80h280q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H480Zm-80-160-55-58 102-102H120v-80h327L345-622l55-58 200 200-200 200Z"
+                }
+              />
+            </Link>
+          )}
 
           <Link to="/cart">
             <ButtonSvg

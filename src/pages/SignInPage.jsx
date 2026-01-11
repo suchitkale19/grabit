@@ -2,18 +2,31 @@ import { Link } from "react-router-dom";
 import InputLabel from "../component/login/InputLabel";
 import { useContext } from "react";
 import { DataContext } from "../DataContext";
+import { useNavigate } from "react-router-dom";
 
 function SignInPage() {
-  const { setLoginPage, user, setUser, initialUser, usersList, saveList } =
-    useContext(DataContext);
+  const navigate = useNavigate();
+  const {
+    setLoginPage,
+    user,
+    setUser,
+    initialUser,
+    setLogin,
+    login,
+    usersList,
+    saveList,
+  } = useContext(DataContext);
   function handleSubmit(e) {
     e.preventDefault();
+    setLogin(true);
+    setUser({ ...user, loginValue: login });
     usersList.push(user);
     saveList();
     // localStorage.clear(); // to clear local storage
     setUser(initialUser);
+    setLoginPage(true);
 
-    console.log(user);
+    navigate("/");
   }
 
   return (

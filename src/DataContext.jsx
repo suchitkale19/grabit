@@ -10,6 +10,7 @@ function DataProvider({ children }) {
   const [loginPage, setLoginPage] = useState(true);
   const [buyProduct, setBuyProduct] = useState([]);
   const [directBuy, setDirectBuy] = useState(true);
+  const [login, setLogin] = useState(false);
   const initialUser = {
     Fullname: "",
     MobileNumber: "",
@@ -29,7 +30,6 @@ function DataProvider({ children }) {
   const usersList = JSON.parse(localStorage.getItem("usersList")) || [];
   function saveList() {
     localStorage.setItem("usersList", JSON.stringify(usersList));
-    console.log(usersList);
   }
 
   useEffect(function () {
@@ -67,6 +67,8 @@ function DataProvider({ children }) {
         setBuyProduct,
         directBuy,
         setDirectBuy,
+        login,
+        setLogin,
       }}
     >
       {children}
