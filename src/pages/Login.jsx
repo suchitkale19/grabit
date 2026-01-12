@@ -4,8 +4,14 @@ import { DataContext } from "../DataContext";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
-  const { setLoginPage, loginData, setLogin, setLoginData, usersList } =
-    useContext(DataContext);
+  const {
+    setLoginPage,
+    loginData,
+    setLoginUser,
+    setLogin,
+    setLoginData,
+    usersList,
+  } = useContext(DataContext);
   const [submitted, setSubmitted] = useState(false);
   const navigate = useNavigate();
 
@@ -16,14 +22,15 @@ function Login() {
         user.Fullname === loginData.username &&
         user.Password === loginData.password
     );
+    setLoginUser(matchUser);
 
     if (matchUser.length === 0) {
       setSubmitted(true);
     } else {
       setSubmitted(false);
       setLogin(true);
-
       navigate("/");
+      setLoginPage(true);
     }
     console.log(matchUser);
   }

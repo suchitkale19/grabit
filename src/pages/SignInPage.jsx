@@ -12,20 +12,16 @@ function SignInPage() {
     setUser,
     initialUser,
     setLogin,
-    login,
     usersList,
     saveList,
   } = useContext(DataContext);
   function handleSubmit(e) {
     e.preventDefault();
     setLogin(true);
-    setUser({ ...user, loginValue: login });
     usersList.push(user);
     saveList();
-    // localStorage.clear(); // to clear local storage
     setUser(initialUser);
     setLoginPage(true);
-
     navigate("/");
   }
 
