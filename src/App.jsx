@@ -12,6 +12,7 @@ import ErrorPage from "./pages/ErrorPage";
 import SignInPage from "./pages/SignInPage";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
+import UserInfo from "./pages/UserInfo";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/product/:idNum" element={<Details />} />
           <Route path="/sign-in" element={<SignInPage />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/user" element={<UserInfo />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         <Footer />
