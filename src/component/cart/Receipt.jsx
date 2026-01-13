@@ -11,7 +11,7 @@ function Receipt({ button, renderProduct }) {
   );
   return (
     <div className="w-[30%] h-fit py-4 rounded-xl border border-zinc-500 px-4">
-      <Title name={"*** Receipt ***"} />
+      <Title name={" Receipt "} />
       <div className="h-10 text-lg flex justify-between items-center border-y px-2">
         <p>Product Name</p>
         <p>Price</p>
