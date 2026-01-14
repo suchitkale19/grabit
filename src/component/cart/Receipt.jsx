@@ -24,16 +24,21 @@ function Receipt({ button, renderProduct }) {
           {totalPrice}
         </p>
       </div>
-      <Link to="/checkout">
-        {button && (
+
+      {button ? (
+        <Link to="/checkout">
           <button
             className="w-full rounded-2xl py-4 bg-[#d78b08] hover:bg-[#D97706] font-bold text-black text-2xl mt-4 "
             onClick={() => setDirectBuy(false)}
           >
             Checkout Now
           </button>
-        )}
-      </Link>
+        </Link>
+      ) : (
+        <button className="w-full rounded-2xl py-4 bg-[#d78b08] hover:bg-[#D97706] font-bold text-black text-2xl mt-4 ">
+          Proceed
+        </button>
+      )}
     </div>
   );
 }
