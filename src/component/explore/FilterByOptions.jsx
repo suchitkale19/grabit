@@ -1,22 +1,36 @@
+import { useState } from "react";
 import ButtonSvg from "../home/ButtonSvg";
+import CategorySection from "../home/CategorySection";
 
-function FilterByOptions() {
+function FilterByOptions({ setCategory }) {
+  const [option, setOption] = useState(false);
   return (
     <div className="w-full h-auto flex gap-5 items-center p-9">
       <h1 className="text-xl">Filter By :</h1>
-      <ButtonSvg
-        path={
-          "m260-520 220-360 220 360H260ZM700-80q-75 0-127.5-52.5T520-260q0-75 52.5-127.5T700-440q75 0 127.5 52.5T880-260q0 75-52.5 127.5T700-80Zm-580-20v-320h320v320H120Zm580-60q42 0 71-29t29-71q0-42-29-71t-71-29q-42 0-71 29t-29 71q0 42 29 71t71 29Zm-500-20h160v-160H200v160Zm202-420h156l-78-126-78 126Zm78 0ZM360-340Zm340 80Z"
-        }
-        name={"Category"}
-        width={"50"}
-      />
+      <div
+        className="relative "
+        onMouseEnter={() => setOption(true)}
+        onMouseLeave={() => setOption(false)}
+      >
+        <ButtonSvg
+          path={
+            "m260-520 220-360 220 360H260ZM700-80q-75 0-127.5-52.5T520-260q0-75 52.5-127.5T700-440q75 0 127.5 52.5T880-260q0 75-52.5 127.5T700-80Zm-580-20v-320h320v320H120Zm580-60q42 0 71-29t29-71q0-42-29-71t-71-29q-42 0-71 29t-29 71q0 42 29 71t71 29Zm-500-20h160v-160H200v160Zm202-420h156l-78-126-78 126Zm78 0ZM360-340Zm340 80Z"
+          }
+          name={"Category"}
+          width={"50"}
+        />
+      </div>
+      {option && (
+        <CategorySection setOption={setOption} setCategory={setCategory} />
+      )}
+
       <ButtonSvg
         path={
           "m668-380 152-130 120 10-176 153 52 227-102-62-46-198Zm-94-292-42-98 46-110 92 217-96-9ZM294-287l126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM173-120l65-281L20-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-340Z"
         }
         name={"Rating"}
       />
+
       <ButtonSvg
         path={
           "M549-120 280-400v-80h140q53 0 91.5-34.5T558-600H240v-80h306q-17-35-50.5-57.5T420-760H240v-80h480v80H590q14 17 25 37t17 43h88v80h-81q-8 85-70 142.5T420-400h-29l269 280H549Z"
