@@ -5,8 +5,8 @@ import Rating from "./Rating";
 import Price from "./Price";
 import Discount from "./Discount";
 
-function FilterByOptions({ setCategory }) {
-  const [option, setOption] = useState(false);
+function FilterByOptions() {
+  const [option, setOption] = useState(null);
   return (
     <div className="w-full h-auto flex gap-5 items-center p-9">
       <h1 className="text-xl">Filter By :</h1>
@@ -34,8 +34,8 @@ function FilterByOptions({ setCategory }) {
           <div
             className="relative "
             key={button.name}
-            onMouseEnter={() => setOption(true)}
-            onMouseLeave={() => setOption(false)}
+            onMouseEnter={() => setTimeout(() => setOption(button.name), 100)}
+            onMouseLeave={() => setOption(null)}
           >
             <ButtonSvg
               path={button.path}
@@ -43,27 +43,19 @@ function FilterByOptions({ setCategory }) {
               width={button.width}
             />
           </div>
-          {option && (
-            <CategorySection setOption={setOption} setCategory={setCategory} />
+          {option === button.name && (
+            <>
+              {button.name === "Category" && (
+                <CategorySection setOption={setOption} />
+              )}
+
+              {button.name === "Rating" && <Rating setOption={setOption} />}
+
+              {button.name === "Price" && <Price setOption={setOption} />}
+
+              {button.name === "Discount" && <Discount setOption={setOption} />}
+            </>
           )}
-          {/* {option &&
-            (button.name === "Category" ? (
-              <CategorySection
-                setOption={setOption}
-                setCategory={setCategory}
-              />
-            ) : button.name === "Rating" ? (
-              <Rating />
-            ) : button.name === "Price" ? (
-              <Price />
-            ) : button.name === "Discount" ? (
-              <Discount />
-            ) : (
-              ""
-            ))} */}
-          {/* <Rating /> */}
-          {/* <Price /> */}
-          {/* <Discount /> */}
         </>
       ))}
     </div>

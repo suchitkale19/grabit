@@ -3,8 +3,8 @@ import Card from "../home/Card";
 import Pagination from "./Pagination";
 import { DataContext } from "../../DataContext";
 
-function AllProducts({ category }) {
-  const { allItems } = useContext(DataContext);
+function AllProducts() {
+  const { allItems, category } = useContext(DataContext);
   const renderItems = category.length === 0 ? allItems : category;
   const [currentPage, setCurrentPage] = useState(1);
   const cardQuantity = 20;

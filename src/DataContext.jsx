@@ -12,6 +12,7 @@ function DataProvider({ children }) {
   const [directBuy, setDirectBuy] = useState(true);
   const [login, setLogin] = useState(false);
   const [loginUser, setLoginUser] = useState();
+  const [category, setCategory] = useState([]);
   const [loginData, setLoginData] = useState({
     username: "",
     password: "",
@@ -78,6 +79,8 @@ function DataProvider({ children }) {
         setLoginData,
         loginUser,
         setLoginUser,
+        category,
+        setCategory,
       }}
     >
       {children}
