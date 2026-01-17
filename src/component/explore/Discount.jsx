@@ -10,25 +10,26 @@ function Discount({ setOption }) {
       onMouseEnter={() => setOption("Discount")}
       onMouseLeave={() => setOption(null)}
     >
-      {["0% - 10%", "10% - 20%", "20% - 30%", "30% - 40%", "40% - 50%"].map(
-        (number) => (
-          <h1
-            className="h-fit w-fit py-1 px-2 border text-center  text-xl font-bold rounded border-zinc-800 hover:bg-zinc-900"
-            key={number}
-            onClick={() =>
-              setCategory(
-                filterItems.filter(
-                  (product) => Math.round(product.rating) === number //fix it rem
-                )
-              )
-            }
-          >
-            {number}
-          </h1>
-        )
-      )}
+      {[0, 5, 10, 15, 20].map((number) => (
+        <h1
+          className="h-fit w-fit py-1 px-2 border text-center  text-xl font-bold rounded border-zinc-800 hover:bg-zinc-900"
+          key={number}
+          onClick={() =>
+            setCategory(
+              filterItems.filter(
+                (product) =>
+                  product.discountPercentage >= number &&
+                  product.discountPercentage < number + 5,
+              ),
+            )
+          }
+        >
+          {number}% - {number + 5}%
+        </h1>
+      ))}
     </div>
   );
+  //discountPercentage
 }
 
 export default Discount;
