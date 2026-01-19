@@ -30,10 +30,9 @@ function FilterByOptions() {
           width: "50",
         },
       ].map((button) => (
-        <>
+        <div key={button.name}>
           <div
             className="relative "
-            key={button.name}
             onMouseEnter={() => setTimeout(() => setOption(button.name), 100)}
             onMouseLeave={() => setOption(null)}
           >
@@ -56,7 +55,7 @@ function FilterByOptions() {
               {button.name === "Discount" && <Discount setOption={setOption} />}
             </>
           )}
-        </>
+        </div>
       ))}
     </div>
   );

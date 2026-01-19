@@ -13,9 +13,10 @@ function CategorySection({ setOption }) {
       {[...new Set(allItems.map((item) => item.category))].map((item) => (
         <h1
           className=" border p-1 rounded-xl text-center border-zinc-800 hover:bg-zinc-900"
+          key={item}
           onClick={() => {
             setCategory(
-              allItems.filter((product) => product.category === item)
+              allItems.filter((product) => product.category === item),
             );
             setOption(false);
           }}
