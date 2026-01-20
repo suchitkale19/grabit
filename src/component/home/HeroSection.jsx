@@ -26,21 +26,20 @@ function HeroSection() {
         </div>
 
         {[
-          { title: "Groceries", type: "groceries", bg: "bg-3.jpg" },
-          { title: "Smartphones", type: "smartphones", bg: "bg-3.webp" },
+          { bg: "bg-3.jpg", title: "Groceries", type: "groceries" },
+          { bg: "bg-3.webp", title: "Smartphones", type: "smartphones" },
           {
+            bg: "bg-4.webp",
             title: "Sports Accessories",
             type: "sports-accessories",
-            bg: "bg-4.webp",
             grid: "col-span-2",
           },
         ].map((item) => (
           <div
+            style={{ backgroundImage: `url(/src/assets/${item.bg})` }}
             className={`${
               item.grid ? item.grid : ""
-            } border border-zinc-700 bg-[url(/src/assets/${
-              item.bg
-            })] bg-cover bg-center rounded-2xl `}
+            } border border-zinc-700 bg-cover bg-center rounded-2xl `}
             key={item.title}
           >
             <div

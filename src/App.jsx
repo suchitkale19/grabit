@@ -13,10 +13,12 @@ import SignInPage from "./pages/SignInPage";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import UserInfo from "./pages/UserInfo";
+import ScrollToTop from "./ScrollToTop";
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <DataProvider>
         <Navpanel />
         <Routes>
