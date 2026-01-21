@@ -28,8 +28,11 @@ function SignInPage() {
   return (
     <div className="h-screen w-full bg-[url(/src/assets/bg3.svg)] bg-cover text-white flex flex-col gap-9 justify-center items-center">
       <Link to="/">
-        <h1 onClick={() => setLoginPage(true)} className="text-3xl">
-          🧾 Sprout Shell🛒
+        <h1
+          className="text-3xl font-extrabold bg-linear-to-r from-orange-500 to-yellow-400 bg-clip-text text-transparent"
+          onClick={() => setLoginPage(true)}
+        >
+          Grab It🛒
         </h1>
       </Link>
       <form

@@ -51,7 +51,9 @@ function CartInputLabel({ description }) {
           name="bank"
         >
           {banks.map((bank) => (
-            <option value={bank}>{bank}</option>
+            <option value={bank} key={bank}>
+              {bank}
+            </option>
           ))}
         </select>
       )}

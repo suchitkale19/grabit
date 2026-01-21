@@ -33,7 +33,7 @@ function Card({ item }) {
           <span className="line-through pl-1">
             ₹
             {Math.round(
-              (item.price * 90) / ((100 - item.discountPercentage) / 100)
+              (item.price * 90) / ((100 - item.discountPercentage) / 100),
             )}
           </span>
         </p>

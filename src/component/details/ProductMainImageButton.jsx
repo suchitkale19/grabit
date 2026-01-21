@@ -1,10 +1,16 @@
 import { useContext } from "react";
 import ButtonSvg from "../home/ButtonSvg";
-import ProductImages from "./ProductImages";
 import { DataContext } from "../../DataContext";
+import { Link } from "react-router-dom";
 
 function ProductMainImageButton({ product, image }) {
-  const { cartProduct, setCartProduct } = useContext(DataContext);
+  const {
+    cartProduct,
+    setCartProduct,
+    setDirectBuy,
+    setBuyProduct,
+    buyProduct,
+  } = useContext(DataContext);
   console.log(cartProduct);
   return (
     <div className="w-[80%] flex flex-col gap-4 p-4">
@@ -15,14 +21,23 @@ function ProductMainImageButton({ product, image }) {
       />
 
       <div className="w-full grid grid-cols-2 gap-2">
-        <ButtonSvg
-          name={"Buy Now"}
-          highlight={true}
-          path={
-            "m480-336 128-184H494l80-280H360v320h120v144ZM400-80v-320H280v-480h400l-80 280h160L400-80Zm80-400H360h120Z"
-          }
-          width={"full"}
-        />
+        <Link to={"/checkout"}>
+          <div
+            onClick={() => {
+              setBuyProduct([...buyProduct, product]);
+              setDirectBuy(true);
+            }}
+          >
+            <ButtonSvg
+              name={"Buy Now"}
+              highlight={true}
+              path={
+                "m480-336 128-184H494l80-280H360v320h120v144ZM400-80v-320H280v-480h400l-80 280h160L400-80Zm80-400H360h120Z"
+              }
+              width={"full"}
+            />
+          </div>
+        </Link>
         <div onClick={() => setCartProduct([...cartProduct, product])}>
           <ButtonSvg
             name={"Add To Cart"}

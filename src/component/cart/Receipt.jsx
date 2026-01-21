@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 import { DataContext } from "../../DataContext";
 
 function Receipt({ button, renderProduct }) {
-  const { setDirectBuy } = useContext(DataContext);
+  const { setDirectBuy, cartProduct } = useContext(DataContext);
   const totalPrice = Math.round(
-    renderProduct.reduce((acc, cur) => acc + cur.price * 90, 0)
+    renderProduct.reduce((acc, cur) => acc + cur.price * 90, 0),
   );
   return (
     <div className="w-[30%] h-fit py-4 rounded-xl border border-zinc-500 px-4">
@@ -26,7 +26,7 @@ function Receipt({ button, renderProduct }) {
       </div>
 
       {button ? (
-        <Link to="/checkout">
+        <Link to={cartProduct.length ? "/checkout" : "/cart"}>
           <button
             className="w-full rounded-2xl py-4 bg-[#d78b08] hover:bg-[#D97706] font-bold text-black text-2xl mt-4 "
             onClick={() => setDirectBuy(false)}
