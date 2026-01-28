@@ -88,4 +88,11 @@ function DataProvider({ children }) {
   );
 }
 
+// function useData() {
+//   const context = useContext(DataContext);
+//   if (context === undefined)
+//     throw new Error("DataContext was used outside of the QuizProvider");
+//   return context;
+// }
+// useData;
 export { DataContext, DataProvider };

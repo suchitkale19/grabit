@@ -23,7 +23,6 @@ function UserProvider({ children }) {
     Password: "",
     ConfirmPassword: "",
   };
-
   const [user, setUser] = useState(initialUser);
   const usersList = JSON.parse(localStorage.getItem("usersList")) || [];
   function saveList() {
