@@ -2,9 +2,10 @@ import { useContext } from "react";
 import ButtonSvg from "./ButtonSvg";
 import { Link } from "react-router-dom";
 import { DataContext } from "/src/DataContext.jsx";
+import { UserContext } from "/src/UserContext.jsx";
 function Navpanel() {
-  const { query, login, loginUser, setQuery, loginPage, setLoginPage } =
-    useContext(DataContext);
+  const { query, setQuery } = useContext(DataContext);
+  const { login, loginUser, loginPage, setLoginPage } = useContext(UserContext);
 
   return (
     loginPage && (

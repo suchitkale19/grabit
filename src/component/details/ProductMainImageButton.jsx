@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import ButtonSvg from "../home/ButtonSvg";
-import { DataContext } from "../../DataContext";
+import { CartContext } from "../../CartContext";
 import { Link } from "react-router-dom";
 
 function ProductMainImageButton({ product, image }) {
@@ -10,8 +10,7 @@ function ProductMainImageButton({ product, image }) {
     setDirectBuy,
     setBuyProduct,
     buyProduct,
-  } = useContext(DataContext);
-  console.log(cartProduct);
+  } = useContext(CartContext);
   return (
     <div className="w-[80%] flex flex-col gap-4 p-4">
       <img

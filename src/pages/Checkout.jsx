@@ -1,11 +1,12 @@
 import Receipt from "../component/cart/Receipt";
 import CartInputLabel from "../component/cart/CartInputLabel";
 import { useContext } from "react";
-import { DataContext } from "../DataContext";
+import { CartContext } from "../CartContext";
+import { UserContext } from "../UserContext";
 
 function Checkout() {
-  const { directBuy, buyProduct, cartProduct, loginUser, login } =
-    useContext(DataContext);
+  const { directBuy, buyProduct, cartProduct } = useContext(CartContext);
+  const { loginUser, login } = useContext(UserContext);
   // const str = "Credit or Debit Card";
   // console.log(str.split(" ")[0]);
   return (

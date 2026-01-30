@@ -2,10 +2,10 @@ import { useContext } from "react";
 import Title from "../home/Title";
 import ReceiptList from "./ReceiptList";
 import { Link } from "react-router-dom";
-import { DataContext } from "../../DataContext";
+import { CartContext } from "../../CartContext";
 
 function Receipt({ button, renderProduct }) {
-  const { setDirectBuy, cartProduct } = useContext(DataContext);
+  const { setDirectBuy, cartProduct } = useContext(CartContext);
   const totalPrice = Math.round(
     renderProduct.reduce((acc, cur) => acc + cur.price * 90, 0),
   );

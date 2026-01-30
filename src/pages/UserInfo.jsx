@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import { DataContext } from "../DataContext";
+import { UserContext } from "../UserContext";
 import ButtonSvg from "/src/component/home/ButtonSvg.jsx";
 import { useNavigate } from "react-router-dom";
 
 function UserInfo() {
   const navigate = useNavigate();
-  const { loginUser, setLogin, login } = useContext(DataContext);
+  const { loginUser, setLogin, login } = useContext(UserContext);
   return (
     <div className="min-h-screen h-fit w-full bg-black text-white flex justify-center items-center">
       {login ? (

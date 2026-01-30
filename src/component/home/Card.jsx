@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import ButtonSvg from "./ButtonSvg";
 import { useContext } from "react";
-import { DataContext } from "../../DataContext";
+import { CartContext } from "../../CartContext";
 
 function Card({ item }) {
   const {
@@ -10,7 +10,7 @@ function Card({ item }) {
     setBuyProduct,
     buyProduct,
     setDirectBuy,
-  } = useContext(DataContext);
+  } = useContext(CartContext);
   return (
     <div className="h-90 w-64 border rounded-2xl flex flex-col justify-center items-center bg-[url(/src/assets/bg3.svg)] bg-cover border-zinc-900 select-none cursor-grab">
       <Link to={`/product/${item.id}`} key={item.id}>

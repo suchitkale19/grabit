@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import InputLabel from "../component/login/InputLabel";
 import { useContext } from "react";
-import { DataContext } from "../DataContext";
+import { UserContext } from "../UserContext";
 import { useNavigate } from "react-router-dom";
 
 function SignInPage() {
@@ -14,7 +14,7 @@ function SignInPage() {
     setLogin,
     usersList,
     saveList,
-  } = useContext(DataContext);
+  } = useContext(UserContext);
   function handleSubmit(e) {
     e.preventDefault();
     setLogin(true);

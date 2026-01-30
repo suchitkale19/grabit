@@ -4,6 +4,7 @@ const UserContext = createContext();
 
 function UserProvider({ children }) {
   const [login, setLogin] = useState(false);
+  const [loginPage, setLoginPage] = useState(true);
   const [loginUser, setLoginUser] = useState();
   const [loginData, setLoginData] = useState({
     username: "",
@@ -42,6 +43,8 @@ function UserProvider({ children }) {
         setUser,
         saveList,
         usersList,
+        loginPage,
+        setLoginPage,
       }}
     >
       {children}

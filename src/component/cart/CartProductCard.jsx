@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { DataContext } from "../../DataContext";
+import { CartContext } from "../../CartContext";
 import Counter from "./Counter";
 
 function CartProductCard() {
-  const { cartProduct, setCartProduct } = useContext(DataContext);
+  const { cartProduct, setCartProduct } = useContext(CartContext);
   if (cartProduct.length === 0)
     return (
       <h1 className="h-96 w-[50%] text-2xl flex flex-col justify-center items-center gap-4">
@@ -30,7 +30,7 @@ function CartProductCard() {
               alt="trash"
               onClick={() =>
                 setCartProduct(
-                  cartProduct.filter((cartItem) => cartItem != product)
+                  cartProduct.filter((cartItem) => cartItem != product),
                 )
               }
             />

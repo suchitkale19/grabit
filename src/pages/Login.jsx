@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { DataContext } from "../DataContext";
+import { UserContext } from "../UserContext";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
@@ -11,7 +11,7 @@ function Login() {
     setLogin,
     setLoginData,
     usersList,
-  } = useContext(DataContext);
+  } = useContext(UserContext);
   const [submitted, setSubmitted] = useState(false);
   const navigate = useNavigate();
 
