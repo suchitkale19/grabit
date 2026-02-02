@@ -4,7 +4,7 @@ import Loading from "./pages/Loading";
 const CartContext = createContext();
 
 function CartProvider({ children }) {
-  const [buyProduct, setBuyProduct] = useState([]);
+  const [buyProduct, setBuyProduct] = useState();
   const [directBuy, setDirectBuy] = useState(true);
   const [cartProduct, setCartProduct] = useState([]);
 

@@ -4,6 +4,7 @@ import OfferSection from "/src/component/home/OfferSection.jsx";
 
 import { useContext } from "react";
 import { DataContext } from "../DataContext";
+import CompanyServices from "../component/home/COmpanyServices";
 
 function HomePage() {
   const { allItems } = useContext(DataContext);
@@ -12,6 +13,7 @@ function HomePage() {
       <HeroSection />
       <ProductSection allItems={allItems} />
       <OfferSection />
+      <CompanyServices />
     </div>
   );
 }

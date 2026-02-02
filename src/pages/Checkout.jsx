@@ -3,12 +3,15 @@ import CartInputLabel from "../component/cart/CartInputLabel";
 import { useContext } from "react";
 import { CartContext } from "../CartContext";
 import { UserContext } from "../UserContext";
+import ButtonSvg from "../component/home/ButtonSvg";
+import { Link } from "react-router-dom";
 
 function Checkout() {
   const { directBuy, buyProduct, cartProduct } = useContext(CartContext);
-  const { loginUser, login } = useContext(UserContext);
+  const { loginUser, login, setLoginPage } = useContext(UserContext);
   // const str = "Credit or Debit Card";
   // console.log(str.split(" ")[0]);
+
   return (
     <div className="h-fit w-full bg-black ubuntu text-white flex justify-center gap-4 p-10">
       <div className="h-fit w-[50%] border border-zinc-500 rounded-2xl  ">
@@ -28,7 +31,17 @@ function Checkout() {
               </h1>
             </div>
           ) : (
-            <h1>Log in to your account</h1>
+            <div className="h-full w-full flex flex-col gap-2 justify-center items-center text-xl py-6">
+              <h1>Log in to your account</h1>
+              <Link to="/login" onClick={() => setLoginPage(false)}>
+                <ButtonSvg
+                  name={"Login"}
+                  path={
+                    "M480-120v-80h280v-560H480v-80h280q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H480Zm-80-160-55-58 102-102H120v-80h327L345-622l55-58 200 200-200 200Z"
+                  }
+                />
+              </Link>
+            </div>
           )}
         </div>
         <div className="flex flex-col gap-10 text-xl  p-6">

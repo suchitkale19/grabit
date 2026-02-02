@@ -4,6 +4,9 @@ import { UserContext } from "../UserContext";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
+  function idCreater(fullName) {
+    return fullName.split(" ")[0].toLowerCase();
+  }
   const {
     setLoginPage,
     loginData,
@@ -19,7 +22,7 @@ function Login() {
     e.preventDefault();
     let matchUser = usersList.filter(
       (user) =>
-        user.Fullname === loginData.username &&
+        idCreater(user.Fullname) === idCreater(loginData.username) &&
         user.Password === loginData.password,
     );
     setLoginUser(matchUser);
@@ -32,7 +35,6 @@ function Login() {
       navigate("/");
       setLoginPage(true);
     }
-    console.log(matchUser);
   }
 
   return (

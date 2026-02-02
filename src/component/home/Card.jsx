@@ -4,13 +4,8 @@ import { useContext } from "react";
 import { CartContext } from "../../CartContext";
 
 function Card({ item }) {
-  const {
-    cartProduct,
-    setCartProduct,
-    setBuyProduct,
-    buyProduct,
-    setDirectBuy,
-  } = useContext(CartContext);
+  const { cartProduct, setCartProduct, setBuyProduct, setDirectBuy } =
+    useContext(CartContext);
   return (
     <div className="h-90 w-64 border rounded-2xl flex flex-col justify-center items-center bg-[url(/src/assets/bg3.svg)] bg-cover border-zinc-900 select-none cursor-grab">
       <Link to={`/product/${item.id}`} key={item.id}>
@@ -41,7 +36,8 @@ function Card({ item }) {
           <Link to={"/checkout"}>
             <div
               onClick={() => {
-                setBuyProduct([...buyProduct, item]);
+                setBuyProduct(item);
+
                 setDirectBuy(true);
               }}
             >

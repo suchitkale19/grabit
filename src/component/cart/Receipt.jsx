@@ -6,9 +6,9 @@ import { CartContext } from "../../CartContext";
 
 function Receipt({ button, renderProduct }) {
   const { setDirectBuy, cartProduct } = useContext(CartContext);
-  const totalPrice = Math.round(
-    renderProduct.reduce((acc, cur) => acc + cur.price * 90, 0),
-  );
+  const totalPrice = Array.isArray(renderProduct)
+    ? Math.round(renderProduct.reduce((acc, cur) => acc + cur.price * 90, 0))
+    : Math.round(renderProduct.price * 90);
   return (
     <div className="w-[30%] h-fit py-4 rounded-xl border border-zinc-500 px-4">
       <Title name={" Receipt "} />
