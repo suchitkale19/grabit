@@ -13,16 +13,21 @@ function ProductSection({ allItems }) {
         <Swiper
           style={{
             padding: "40px 0px",
+
             "--swiper-navigation-color": "#fff", // change to your color
             "--swiper-navigation-size": "28px", // optional: change size
             // "--swiper-pagination-color": "white", // active dot color
             // "--swiper-pagination-bullet-inactive-color": "#ffffff", // inactive dot color
             // "--swiper-pagination-bullet-inactive-opacity": "0.4", // optional
           }}
-          spaceBetween={50}
-          slidesPerView={4}
+          loop={true}
+          spaceBetween={10}
+          slidesPerView={5}
           navigation={true}
           modules={[Navigation]}
+          loopAdditionalSlides={5}
+          observer={true}
+          observeParents={true}
         >
           {allItems.length > 30
             ? allItems

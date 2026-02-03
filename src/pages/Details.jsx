@@ -4,18 +4,12 @@ import { DataContext } from "../DataContext";
 import ProductDetails from "../component/details/ProductDetails";
 import ProductMainImageButton from "../component/details/ProductMainImageButton";
 import ProductImages from "../component/details/ProductImages";
-import Title from "/src/component/home/Title.jsx";
 import ProductSection from "../component/home/ProductSection";
 
 function Details() {
   const { idNum } = useParams();
   const { allItems } = useContext(DataContext);
   const [image, setImage] = useState(null);
-
-  const fiteredCategories = allItems.filter(
-    (item) => item.category === "fragrances"
-  );
-  console.log(fiteredCategories);
 
   return (
     <>
@@ -48,7 +42,7 @@ function Details() {
             <div className="w-full">
               <ProductSection
                 allItems={allItems.filter(
-                  (item) => item.category === product.category
+                  (item) => item.category === product.category,
                 )}
               />
             </div>

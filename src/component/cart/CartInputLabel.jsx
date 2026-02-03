@@ -1,4 +1,4 @@
-function CartInputLabel({ description }) {
+function CartInputLabel({ description, setPaymentMethod }) {
   const descriptionID = description.split(" ")[0];
   const banks = [
     "Choose Option",
@@ -31,6 +31,7 @@ function CartInputLabel({ description }) {
           type="radio"
           id={descriptionID}
           name="payment"
+          onChange={(e) => setPaymentMethod(e.target.value)}
         />
         <label
           htmlFor={descriptionID}

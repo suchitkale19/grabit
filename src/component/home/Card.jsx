@@ -7,7 +7,10 @@ function Card({ item }) {
   const { cartProduct, setCartProduct, setBuyProduct, setDirectBuy } =
     useContext(CartContext);
   return (
-    <div className="h-90 w-64 border rounded-2xl flex flex-col justify-center items-center bg-[url(/src/assets/bg3.svg)] bg-cover border-zinc-900 select-none cursor-grab">
+    <div className="h-90 w-64 border rounded-2xl flex flex-col justify-center items-center bg-[url(/src/assets/bg3.svg)] bg-cover border-zinc-900 select-none cursor-grab relative">
+      <div className="w-20 h-fit text-xl text-center text-black font-bold rounded-bl-3xl rounded-tr-3xl bg-[#FFD166] p-1 top-2 right-2 text- absolute">
+        {Math.round(item.discountPercentage)}%
+      </div>
       <Link to={`/product/${item.id}`} key={item.id}>
         <img
           className="h-48 cursor-pointer "

@@ -25,9 +25,12 @@ function UserProvider({ children }) {
     ConfirmPassword: "",
   };
   const [user, setUser] = useState(initialUser);
-  const usersList = JSON.parse(localStorage.getItem("usersList")) || [];
-  function saveList() {
-    localStorage.setItem("usersList", JSON.stringify(usersList));
+  const [usersList, setUsersList] = useState(
+    JSON.parse(localStorage.getItem("usersList")) || [],
+  );
+  function saveList(updatedUsers) {
+    setUsersList(updatedUsers);
+    localStorage.setItem("usersList", JSON.stringify(updatedUsers));
   }
 
   return (

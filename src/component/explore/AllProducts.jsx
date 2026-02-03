@@ -14,7 +14,7 @@ function AllProducts() {
   return (
     <div>
       <div className="w-full flex justify-center items-center py-16 transition-all">
-        <div className="w-[80%] grid grid-cols-4 justify-center items-center gap-6">
+        <div className="w-[80%] grid grid-cols-5 justify-center items-center gap-6">
           {renderItems.slice(startIndex, lastIndex).map((item) => (
             <Card item={item} key={item.id} />
           ))}

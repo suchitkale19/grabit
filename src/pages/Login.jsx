@@ -25,7 +25,7 @@ function Login() {
         idCreater(user.Fullname) === idCreater(loginData.username) &&
         user.Password === loginData.password,
     );
-    setLoginUser(matchUser);
+    setLoginUser(matchUser[0]);
 
     if (matchUser.length === 0) {
       setSubmitted(true);

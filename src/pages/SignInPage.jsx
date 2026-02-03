@@ -14,12 +14,15 @@ function SignInPage() {
     setLogin,
     usersList,
     saveList,
+    setLoginUser,
   } = useContext(UserContext);
   function handleSubmit(e) {
     e.preventDefault();
+    const updatedUsers = [...usersList, user];
+
+    saveList(updatedUsers);
     setLogin(true);
-    usersList.push(user);
-    saveList();
+    setLoginUser(user);
     setUser(initialUser);
     setLoginPage(true);
     navigate("/");

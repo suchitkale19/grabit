@@ -1,6 +1,6 @@
 import Receipt from "../component/cart/Receipt";
 import CartInputLabel from "../component/cart/CartInputLabel";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../CartContext";
 import { UserContext } from "../UserContext";
 import ButtonSvg from "../component/home/ButtonSvg";
@@ -9,25 +9,23 @@ import { Link } from "react-router-dom";
 function Checkout() {
   const { directBuy, buyProduct, cartProduct } = useContext(CartContext);
   const { loginUser, login, setLoginPage } = useContext(UserContext);
-  // const str = "Credit or Debit Card";
-  // console.log(str.split(" ")[0]);
+  const [paymentMethod, setPaymentMethod] = useState("");
 
-  return (
+  return buyProduct || cartProduct.length ? (
     <div className="h-fit w-full bg-black ubuntu text-white flex justify-center gap-4 p-10">
       <div className="h-fit w-[50%] border border-zinc-500 rounded-2xl  ">
         <div className="text-3xl p-6  ">
           <h1>Delivering to ...</h1>
           {login ? (
             <div className="text-xl px-6 py-6">
-              <h1>{loginUser[0].Fullname}</h1>
+              <h1>{loginUser.Fullname}</h1>
               <h1>
-                {loginUser[0].BuildingAddress} , {loginUser[0].Landmark},
+                {loginUser.BuildingAddress} , {loginUser.Landmark},
               </h1>
-              <h1>{loginUser[0].RoadAddress},</h1>
-              <h1>{loginUser[0].Area},</h1>
+              <h1>{loginUser.RoadAddress},</h1>
+              <h1>{loginUser.Area},</h1>
               <h1>
-                {loginUser[0].City} , {loginUser[0].State}{" "}
-                {loginUser[0].PinCode},
+                {loginUser.City} , {loginUser.State} {loginUser.PinCode},
               </h1>
             </div>
           ) : (
@@ -53,7 +51,11 @@ function Checkout() {
               "Scan and Pay with UPI",
               "Pay on Delivery",
             ].map((description) => (
-              <CartInputLabel description={description} key={description} />
+              <CartInputLabel
+                setPaymentMethod={setPaymentMethod}
+                description={description}
+                key={description}
+              />
             ))}
           </div>
         </div>
@@ -61,8 +63,13 @@ function Checkout() {
       <Receipt
         button={false}
         renderProduct={directBuy ? buyProduct : cartProduct}
-      />{" "}
-      {/*think about the logic of how to know which array should render */}
+        paymentMethod={paymentMethod}
+      />
+    </div>
+  ) : (
+    <div className="h-screen text-4xl  w-full bg-black text-white flex justify-center items-center ">
+      {" "}
+      <h1>You haven't selected anything to buy </h1>
     </div>
   );
 }
