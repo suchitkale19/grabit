@@ -6,7 +6,7 @@ function Price({ setOption }) {
   const filterItems = category.length === 0 ? allItems : category;
   return (
     <div
-      className="h-fit w-fit p-4 flex flex-col gap-2 absolute top-39 left-106 border   bg-black border-zinc-800 rounded-xl"
+      className="h-fit w-fit p-4 flex flex-col gap-2 absolute z-50 border   bg-black border-zinc-800 rounded-xl"
       onMouseEnter={() => setOption("Price")}
       onMouseLeave={() => setOption(null)}
     >
@@ -23,7 +23,7 @@ function Price({ setOption }) {
             )
           }
         >
-          {number}% - {number + 10000}%
+          ₹{number} - ₹{number + 10000}
         </h1>
       ))}
     </div>

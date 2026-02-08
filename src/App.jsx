@@ -16,6 +16,7 @@ import UserInfo from "./pages/UserInfo";
 import ScrollToTop from "./ScrollToTop";
 import { UserProvider } from "./UserContext";
 import { CartProvider } from "./CartContext";
+import OrderPlaced from "./pages/OrderPlaced";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
               <Route path="/sign-in" element={<SignInPage />} />
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/user" element={<UserInfo />} />
+              <Route path="/order_placed" element={<OrderPlaced />} />
               <Route path="*" element={<ErrorPage />} />
             </Routes>
             <Footer />

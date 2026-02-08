@@ -4,13 +4,8 @@ import { CartContext } from "../../CartContext";
 import { Link } from "react-router-dom";
 
 function ProductMainImageButton({ product, image }) {
-  const {
-    cartProduct,
-    setCartProduct,
-    setDirectBuy,
-    setBuyProduct,
-    buyProduct,
-  } = useContext(CartContext);
+  const { cartProduct, setCartProduct, setDirectBuy, setBuyProduct } =
+    useContext(CartContext);
   return (
     <div className="w-[80%] flex flex-col gap-4 p-4">
       <img
@@ -23,7 +18,7 @@ function ProductMainImageButton({ product, image }) {
         <Link to={"/checkout"}>
           <div
             onClick={() => {
-              setBuyProduct([...buyProduct, product]);
+              setBuyProduct(product);
               setDirectBuy(true);
             }}
           >

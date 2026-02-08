@@ -68,7 +68,6 @@ function Checkout() {
     </div>
   ) : (
     <div className="h-screen text-4xl  w-full bg-black text-white flex justify-center items-center ">
-      {" "}
       <h1>You haven't selected anything to buy </h1>
     </div>
   );

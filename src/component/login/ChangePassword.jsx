@@ -18,14 +18,12 @@ function ChangePassword({ setChange }) {
         ? { ...user, Password: newPassword }
         : user,
     );
-    console.log(updatedUsers);
-    console.log("working");
     saveList(updatedUsers);
     setWrongPassword(false);
     setChange(false);
   }
   return (
-    <div className="h-screen w-full backdrop-blur-lg text-white flex flex-col gap-9 justify-center items-center absolute">
+    <div className="h-full w-full backdrop-blur-lg text-white flex flex-col gap-9 justify-center items-center absolute z-50">
       <div className="border bg-black border-zinc-900 h-fit w-fit text-lg flex flex-col rounded-2xl  p-7 gap-4 items-center">
         <form
           className="flex flex-col items-start gap-2"
@@ -39,7 +37,11 @@ function ChangePassword({ setChange }) {
               &times;
             </div>
           </div>
-          {wrongPassword && <p>You have enter'ed wrong password</p>}
+          {wrongPassword && (
+            <p className="w-full text-red-700 text-center">
+              You have enter'ed wrong password
+            </p>
+          )}
           <label htmlFor="oldPassword">Old Password</label>
           <input
             id="oldPassword"

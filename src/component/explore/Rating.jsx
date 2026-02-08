@@ -6,7 +6,7 @@ function Rating({ setOption }) {
   const filterItems = category.length === 0 ? allItems : category;
   return (
     <div
-      className="h-fit w-fit p-4 flex flex-col gap-2 absolute top-39 left-73 border   bg-black border-zinc-800 rounded-xl"
+      className="h-fit w-fit p-4 flex flex-col gap-2 absolute z-50 border   bg-black border-zinc-800 rounded-xl"
       onMouseEnter={() => setOption("Rating")}
       onMouseLeave={() => setOption(null)}
     >
@@ -17,8 +17,8 @@ function Rating({ setOption }) {
           onClick={() =>
             setCategory(
               filterItems.filter(
-                (product) => Math.round(product.rating) === number
-              )
+                (product) => Math.round(product.rating) === number,
+              ),
             )
           }
         >

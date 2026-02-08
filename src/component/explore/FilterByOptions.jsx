@@ -8,7 +8,7 @@ import Discount from "./Discount";
 function FilterByOptions() {
   const [option, setOption] = useState(null);
   return (
-    <div className="w-full h-auto flex gap-5 items-center p-9">
+    <div className="w-full h-auto flex gap-5 items-center p-9 relative ">
       <h1 className="text-xl">Filter By :</h1>
       {[
         {
@@ -32,7 +32,6 @@ function FilterByOptions() {
       ].map((button) => (
         <div key={button.name}>
           <div
-            className="relative "
             onMouseEnter={() => setTimeout(() => setOption(button.name), 100)}
             onMouseLeave={() => setOption(null)}
           >

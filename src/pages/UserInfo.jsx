@@ -3,6 +3,7 @@ import { UserContext } from "../UserContext";
 import ButtonSvg from "/src/component/home/ButtonSvg.jsx";
 import { useNavigate } from "react-router-dom";
 import ChangePassword from "../component/login/ChangePassword";
+import MyOrders from "../component/user/MyOrders";
 
 function UserInfo() {
   const navigate = useNavigate();
@@ -54,9 +55,7 @@ function UserInfo() {
             <h1 className="text-4xl" id="MyOrders">
               My Orders
             </h1>
-            <div className="min-h-[40%] h-48  w-full flex items-center justify-center rounded-2xl border border-zinc-800">
-              <h1>No orders yet!</h1>
-            </div>
+            <MyOrders />
             <h1 className="text-4xl" id="Addresses">
               Addresses
             </h1>

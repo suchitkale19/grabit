@@ -6,7 +6,7 @@ function CategorySection({ setOption }) {
   const { allItems, setCategory } = useContext(DataContext);
   return (
     <div
-      className="absolute top-39 left-28 border  bg-black border-zinc-800 rounded-4xl grid grid-cols-4 p-9 gap-4 justify-center items-center "
+      className="absolute z-50 border  bg-black border-zinc-800 rounded-4xl grid grid-cols-4 p-9 gap-4 justify-center items-center "
       onMouseEnter={() => setOption("Category")}
       onMouseLeave={() => setOption(null)}
     >

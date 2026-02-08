@@ -31,6 +31,7 @@ function CartInputLabel({ description, setPaymentMethod }) {
           type="radio"
           id={descriptionID}
           name="payment"
+          value={description}
           onChange={(e) => setPaymentMethod(e.target.value)}
         />
         <label

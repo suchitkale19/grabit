@@ -6,7 +6,7 @@ function Discount({ setOption }) {
   const filterItems = category.length === 0 ? allItems : category;
   return (
     <div
-      className="h-fit w-fit p-4 flex flex-col gap-2 absolute top-39 left-139 border   bg-black border-zinc-800 rounded-xl"
+      className="h-fit w-fit p-4 flex flex-col gap-2 absolute z-50 border   bg-black border-zinc-800 rounded-xl"
       onMouseEnter={() => setOption("Discount")}
       onMouseLeave={() => setOption(null)}
     >
