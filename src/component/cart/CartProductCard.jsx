@@ -1,14 +1,19 @@
 import { useContext } from "react";
 import { CartContext } from "../../CartContext";
 import Counter from "./Counter";
+import ButtonSvg from "../home/ButtonSvg";
+import { Link } from "react-router-dom";
 
 function CartProductCard() {
   const { cartProduct, setCartProduct } = useContext(CartContext);
   if (cartProduct.length === 0)
     return (
-      <h1 className="h-96 w-[50%] text-2xl flex flex-col justify-center items-center gap-4">
-        You haven't added products to your cart
-      </h1>
+      <div className="h-96 w-[50%] text-2xl flex flex-col justify-center items-center gap-4">
+        <h1>You haven't added products to your cart</h1>
+        <Link to={"/explore"}>
+          <ButtonSvg name={"Explore Now"} />
+        </Link>
+      </div>
     );
   return (
     <div className="h-fit w-[50%] flex flex-col gap-4 ">
@@ -22,7 +27,7 @@ function CartProductCard() {
             <div className="flex flex-col gap-2">
               <h1 className="text-2xl font-bold">{product.title} </h1>
               <h1>{product.brand} </h1>
-              <Counter />
+              <Counter product={product} />
             </div>
             <img
               className="border border-zinc-900  rounded-full p-2"

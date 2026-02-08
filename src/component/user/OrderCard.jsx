@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function OrderCard({ order }) {
   return (
-    <div className="h-90 w-64 border rounded-2xl flex flex-col justify-center items-center bg-[url(/src/assets/bg3.svg)] bg-cover border-zinc-900 select-none cursor-grab relative">
+    <div className="h-fit w-64 border rounded-2xl p-2 flex flex-col justify-center items-center bg-[url(/src/assets/bg3.svg)] bg-cover border-zinc-900 select-none cursor-grab relative">
       <div className="w-20 h-fit text-xl  text-center text-black font-bold rounded-bl-3xl rounded-tr-3xl bg-[#FFD166] p-1 top-2 right-2 absolute">
         {Math.round(order.discountPercentage) < 10
           ? "0" + Math.round(order.discountPercentage)

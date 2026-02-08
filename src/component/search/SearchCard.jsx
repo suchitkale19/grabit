@@ -1,18 +1,28 @@
+import { Link } from "react-router-dom";
 import ButtonSvg from "../home/ButtonSvg";
+import { useContext } from "react";
+import { CartContext } from "../../CartContext";
 
 function SearchCard({ item }) {
+  const { setBuyProduct, setDirectBuy } = useContext(CartContext);
   return (
     <div className="w-full h-64 text-xl bg-[url(/src/assets/bg3.svg)] bg-cover bg-center border border-zinc-950 rounded-2xl flex gap-5  p-6">
       <div className=" h-auto w-auto flex justify-center items-center">
-        <img
-          className="h-52 rounded-2xl shadow-[0_12px_30px_rgba(255,255,255,0.08)]"
-          src={item.thumbnail}
-          alt={item.title}
-        />
+        <Link to={`/product/${item.id}`}>
+          <img
+            className="h-52 rounded-2xl shadow-[0_12px_30px_rgba(255,255,255,0.08)]"
+            src={item.thumbnail}
+            alt={item.title}
+          />
+        </Link>
       </div>
       <div className="flex justify-between w-[75%] ">
         <div className="flex flex-col gap-1">
-          <h1 className="text-2xl font-extralight">{item.title}</h1>
+          <Link to={`/product/${item.id}`}>
+            <h1 className="text-2xl font-extralight  hover:underline ">
+              {item.title}
+            </h1>
+          </Link>
           <p>
             {"⭐".repeat(item.rating)}☆ {item.rating} (
             {Math.round(item.price * 10)} ratings)
@@ -24,7 +34,7 @@ function SearchCard({ item }) {
               <span className="line-through pl-1">
                 ₹
                 {Math.round(
-                  (item.price * 90) / ((100 - item.discountPercentage) / 100)
+                  (item.price * 90) / ((100 - item.discountPercentage) / 100),
                 )}
               </span>
             </h2>
@@ -45,13 +55,23 @@ function SearchCard({ item }) {
               : Math.round(item.discountPercentage)}
             % Off
           </p>
-          <ButtonSvg
-            name={"Buy Now"}
-            height={22}
-            width={64}
-            textHeight={"xl"}
-            highlight={true}
-          />
+          <Link to={"/checkout"}>
+            <div
+              onClick={() => {
+                setBuyProduct(item);
+
+                setDirectBuy(true);
+              }}
+            >
+              <ButtonSvg
+                name={"Buy Now"}
+                height={22}
+                width={64}
+                textHeight={"xl"}
+                highlight={true}
+              />
+            </div>
+          </Link>
         </div>
       </div>
     </div>

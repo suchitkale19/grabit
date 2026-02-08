@@ -6,7 +6,7 @@ import { CartContext } from "../CartContext";
 function Cart() {
   const { cartProduct } = useContext(CartContext);
   return (
-    <div className="h-fit w-full bg-black ubuntu text-white flex justify-center gap-4 p-10">
+    <div className="min-h-screen h-fit w-full bg-black ubuntu text-white flex justify-center gap-4 p-10">
       <CartProductCard />
       <Receipt button={true} renderProduct={cartProduct} />
     </div>

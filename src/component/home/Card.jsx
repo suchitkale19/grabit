@@ -57,11 +57,30 @@ function Card({ item }) {
             </div>
           </Link>
           <Link to={"/cart"}>
-            <div onClick={() => setCartProduct([...cartProduct, item])}>
+            <div
+              onClick={() => {
+                const exists = cartProduct.some((p) => p.id === item.id);
+
+                if (exists) {
+                  setCartProduct((prev) =>
+                    prev.map((p) =>
+                      p.id === item.id
+                        ? { ...p, quantityAdded: (p.quantityAdded || 0) + 1 }
+                        : p,
+                    ),
+                  );
+                } else {
+                  setCartProduct((prev) => [
+                    ...prev,
+                    { ...item, quantityAdded: 1 },
+                  ]);
+                }
+              }}
+            >
               <ButtonSvg
                 name={"Add To Cart"}
                 height={10}
-                width={22}
+                width={30}
                 textHeight={"md"}
               />
             </div>

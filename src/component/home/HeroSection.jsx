@@ -3,8 +3,21 @@ import ButtonSvg from "./ButtonSvg";
 import { useContext } from "react";
 import { DataContext } from "../../DataContext";
 import { useNavigate } from "react-router-dom";
+// import { useGSAP } from "@gsap/react";
+// import gsap from "gsap";
+
+// gsap.registerPlugin(useGSAP);
 
 function HeroSection() {
+  // const exploreRef = useRef();
+  // useGSAP(() => {
+  //   gsap.fromTo(
+  //     exploreRef.current,
+  //     { x: -500, opacity: 0 },
+  //     { x: 0, opacity: 1, duration: 1.5 },
+  //   );
+  // }, []);
+
   const navigate = useNavigate();
   const { setCategory, allItems } = useContext(DataContext);
   const path =
@@ -12,7 +25,10 @@ function HeroSection() {
   return (
     <div className="w-full flex justify-center items-center p-16 text-xl ">
       <div className="w-[80%] h-[70vh] grid grid-cols-4 grid-rows-2 gap-5  rounded-2xl">
-        <div className="text-zinc-200 border transition-all  border-zinc-700 bg-[url(/src/assets/bg-2.jpg)] bg-cover bg-center flex flex-col justify-end px-6 py-12 col-span-2 row-span-2 gap-2 rounded-2xl">
+        <div
+          ref={exploreRef}
+          className="text-zinc-200 border transition-all  border-zinc-700 bg-[url(/src/assets/bg-2.jpg)] bg-cover bg-center flex flex-col justify-end px-6 py-12 col-span-2 row-span-2 gap-2 rounded-2xl"
+        >
           <h1 className="text-3xl text-white ">
             Everything You Need. One Click Away.
           </h1>
@@ -20,7 +36,7 @@ function HeroSection() {
             Discover Millions of Products, Best Deals, and Lightning-Fast
             Delivery.
           </p>
-          <Link to="/explore">
+          <Link to="/explore" onClick={setCategory(allItems)}>
             <ButtonSvg path={path} name={"Explore"} highlight={true} />
           </Link>
         </div>
