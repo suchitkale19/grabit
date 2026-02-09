@@ -3,15 +3,29 @@ import ButtonSvg from "./ButtonSvg";
 import { Link } from "react-router-dom";
 import { DataContext } from "/src/DataContext.jsx";
 import { UserContext } from "/src/UserContext.jsx";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 function Navpanel() {
   const { query, setQuery } = useContext(DataContext);
   const { login, loginUser, loginPage, setLoginPage } = useContext(UserContext);
+
+  useGSAP(() => {
+    gsap.from("#title", {
+      y: -50,
+      opacity: 0,
+      duration: 0.5,
+      stagger: 1,
+    });
+  });
 
   return (
     loginPage && (
       <div className="h-20 w-full text-white flex justify-between items-center px-11 bg-zinc-950 border-b border-zinc-700 ">
         <Link to="/">
-          <h1 className="text-3xl font-extrabold bg-linear-to-r from-orange-500 to-yellow-400 bg-clip-text text-transparent">
+          <h1
+            id="title"
+            className="text-3xl font-extrabold bg-linear-to-r from-orange-500 to-yellow-400 bg-clip-text text-transparent"
+          >
             Grab It🛒
           </h1>
         </Link>
@@ -39,7 +53,7 @@ function Navpanel() {
         </div>
 
         <div className="flex gap-6 text-lg ">
-          <Link to="/cart">
+          <Link to="/cart" id="title">
             <ButtonSvg
               name={"Cart"}
               path={
@@ -49,7 +63,7 @@ function Navpanel() {
             />
           </Link>
           {login ? (
-            <Link to={"/user"}>
+            <Link to={"/user"} id="title">
               <ButtonSvg
                 name={loginUser.Fullname.split(" ")[0]}
                 path={
@@ -58,7 +72,7 @@ function Navpanel() {
               />
             </Link>
           ) : (
-            <Link to="/login" onClick={() => setLoginPage(false)}>
+            <Link to="/login" id="title" onClick={() => setLoginPage(false)}>
               <ButtonSvg
                 name={"Login"}
                 path={
