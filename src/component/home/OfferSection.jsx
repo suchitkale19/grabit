@@ -13,16 +13,18 @@ function OfferSection() {
   const offerCardRef = useRef();
 
   useGSAP(() => {
-    gsap.from(offerCardRef.current, {
-      x: 100,
-      opacity: 0,
-      stagger: 0.2,
-      scrollTrigger: {
-        trigger: offerCardRef.current,
-        start: "top 80%",
-        end: "top 20%",
-        scrub: true,
-      },
+    const offerCards = gsap.utils.toArray(offerCardRef.current.children);
+    offerCards.forEach((offerCard) => {
+      gsap.from(offerCard, {
+        x: (offerCards.indexOf(offerCard) + 1) % 2 === 0 ? 100 : -100,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: offerCard,
+          start: "top 100%",
+          end: "top 65%",
+          scrub: true,
+        },
+      });
     });
   });
 
@@ -34,12 +36,12 @@ function OfferSection() {
         subtitle={"Unbeatable Prices for a Limited Time"}
       />
       <div className="w-full h-auto flex justify-center items-center ">
-        <div className="w-[80%] grid grid-cols-2 gap-6 py-7">
+        <div ref={offerCardRef} className="w-[80%] grid grid-cols-2 gap-6 py-7">
           {allItems
             .filter((item) => item.discountPercentage > 19)
             .slice(0, 6)
             .map((item) => (
-              <OfferCard ref={offerCardRef} item={item} key={item.id} />
+              <OfferCard item={item} key={item.id} />
             ))}
         </div>
       </div>
