@@ -14,7 +14,6 @@ function Navpanel() {
       y: -50,
       opacity: 0,
       duration: 0.5,
-      stagger: 1,
     });
   });
 

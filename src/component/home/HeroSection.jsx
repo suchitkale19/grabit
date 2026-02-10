@@ -12,21 +12,36 @@ function HeroSection() {
   const exploreRef = useRef();
   useGSAP(() => {
     gsap.from(exploreRef.current, {
-      x: -100,
+      x: -150,
       opacity: 0,
       duration: 1,
       delay: 0.5,
       ease: "power2.inOut",
     });
-  });
-  useGSAP(() => {
-    gsap.from("#categoryDiv", {
-      y: -100,
+
+    gsap.from("#groceries", {
+      y: -150,
       opacity: 0,
       duration: 1,
       delay: 0.5,
       ease: "power2.inOut",
       stagger: 0.5,
+    });
+
+    gsap.from("#sports-accessories", {
+      y: 150,
+      opacity: 0,
+      duration: 1,
+      delay: 0.5,
+      ease: "power2.inOut",
+    });
+
+    gsap.from("#smartphones", {
+      x: 150,
+      opacity: 0,
+      duration: 1,
+      delay: 0.5,
+      ease: "power2.inOut",
     });
   });
 
@@ -64,7 +79,7 @@ function HeroSection() {
           },
         ].map((item) => (
           <div
-            id="categoryDiv"
+            id={item.type}
             style={{ backgroundImage: `url(/src/assets/${item.bg})` }}
             className={`${
               item.grid ? item.grid : ""
