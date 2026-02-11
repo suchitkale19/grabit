@@ -19,7 +19,6 @@ function CompanyServices() {
           trigger: service,
           start: "top 100% ",
           end: "top 60%",
-          markers: true,
           scrub: true,
         },
       });

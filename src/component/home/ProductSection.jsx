@@ -4,13 +4,36 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import Card from "./Card";
+// import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/all";
 
+gsap.registerPlugin(ScrollTrigger);
 function ProductSection({ allItems }) {
+  // const cardRef = useRef();
+  useGSAP(() => {
+    const productCards = gsap.utils.toArray(".productCard");
+    console.log(productCards);
+
+    gsap.from(productCards, {
+      y: 200,
+      opacity: 0,
+      stagger: 0.2,
+      scrollTrigger: {
+        trigger: "#cardContainer",
+        start: "top 80%",
+        end: "top 60%",
+      },
+    });
+  });
+
   return (
     <div>
       <Title name={"Trending Now"} subtitle={"Popular Picks This Week"} />
       <div className="h-auto w-full pb-7 pt-3 px-40">
         <Swiper
+          id="cardContainer"
           style={{
             padding: "40px 0px",
 
@@ -34,12 +57,12 @@ function ProductSection({ allItems }) {
                 .filter((item) => item.rating >= 4.2)
                 .slice(0, 16)
                 .map((item) => (
-                  <SwiperSlide key={item.id}>
+                  <SwiperSlide className="productCard" key={item.id}>
                     <Card item={item} />
                   </SwiperSlide>
                 ))
             : allItems.map((item) => (
-                <SwiperSlide key={item.id}>
+                <SwiperSlide className="productCard" key={item.id}>
                   <Card item={item} />
                 </SwiperSlide>
               ))}
