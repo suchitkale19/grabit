@@ -4,14 +4,12 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import Card from "./Card";
-// import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 
 gsap.registerPlugin(ScrollTrigger);
 function ProductSection({ allItems }) {
-  // const cardRef = useRef();
   useGSAP(() => {
     const productCards = gsap.utils.toArray(".productCard");
     console.log(productCards);
@@ -37,11 +35,8 @@ function ProductSection({ allItems }) {
           style={{
             padding: "40px 0px",
 
-            "--swiper-navigation-color": "#fff", // change to your color
-            "--swiper-navigation-size": "28px", // optional: change size
-            // "--swiper-pagination-color": "white", // active dot color
-            // "--swiper-pagination-bullet-inactive-color": "#ffffff", // inactive dot color
-            // "--swiper-pagination-bullet-inactive-opacity": "0.4", // optional
+            "--swiper-navigation-color": "#fff",
+            "--swiper-navigation-size": "28px",
           }}
           loop={true}
           spaceBetween={10}

@@ -9,10 +9,16 @@ import gsap from "gsap";
 gsap.registerPlugin(useGSAP);
 
 function HeroSection() {
-  const exploreRef = useRef();
   const categoryRef = useRef();
   useGSAP(() => {
     const bentoDiv = gsap.utils.toArray(categoryRef.current.children);
+
+    gsap.from("#textDiv", {
+      y: -50,
+      opacity: 0,
+      stagger: 0.3,
+      delay: 1.5,
+    });
 
     bentoDiv.forEach((divs) => {
       gsap.from(divs, {
@@ -46,18 +52,19 @@ function HeroSection() {
         ref={categoryRef}
         className="w-[80%] h-[70vh] grid grid-cols-4 grid-rows-2 gap-5  rounded-2xl"
       >
-        <div
-          ref={exploreRef}
-          className="text-zinc-200 border  border-zinc-700 bg-[url(/src/assets/bg-2.jpg)] bg-cover bg-center flex flex-col justify-end px-6 py-12 col-span-2 row-span-2 gap-2 rounded-2xl"
-        >
-          <h1 className="text-3xl text-white ">
+        <div className="text-zinc-200 border  border-zinc-700 bg-[url(/src/assets/bg-2.jpg)] bg-cover bg-center flex flex-col justify-end px-6 py-12 col-span-2 row-span-2 gap-2 rounded-2xl">
+          <h1 id="textDiv" className="text-3xl text-white ">
             Everything You Need. One Click Away.
           </h1>
-          <p>
+          <p id="textDiv">
             Discover Millions of Products, Best Deals, and Lightning-Fast
             Delivery.
           </p>
-          <Link to="/explore" onClick={() => setCategory(allItems)}>
+          <Link
+            id="textDiv"
+            to="/explore"
+            onClick={() => setCategory(allItems)}
+          >
             <ButtonSvg path={path} name={"Explore"} highlight={true} />
           </Link>
         </div>
@@ -89,7 +96,7 @@ function HeroSection() {
                 navigate("/explore");
               }}
             >
-              <h1>{item.title}</h1>
+              <h1 id="textDiv">{item.title}</h1>
             </div>
           </div>
         ))}

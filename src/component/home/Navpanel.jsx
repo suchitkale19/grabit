@@ -27,6 +27,12 @@ function Navpanel() {
           >
             Grab It🛒
           </h1>
+          <h1
+            id="title"
+            className="text-3xl font-extrabold bg-linear-to-r from-orange-500 to-yellow-400 bg-clip-text text-transparent"
+          >
+            Grab It🛒
+          </h1>
         </Link>
         <div className="h-auto  rounded-2xl flex items-center gap-3 relative">
           <input
