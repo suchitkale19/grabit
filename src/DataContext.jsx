@@ -8,20 +8,28 @@ function DataProvider({ children }) {
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(true);
   const [category, setCategory] = useState([]);
+  const [error, setError] = useState();
 
   useEffect(function () {
     async function fetchItems() {
-      const res = await fetch("https://dummyjson.com/products?limit=194");
-      const data = await res.json();
-      setAllItems(data.products || []);
-      setLoading(false);
-      console.log(data);
+      try {
+        const res = await fetch("https://dummyjson.com/products?limit=194");
+        if (!res.ok) throw new Error("Something went wrong");
+        const data = await res.json();
+        setAllItems(data.products || []);
+        console.log(data);
+      } catch (err) {
+        console.log(err.message);
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
     }
     fetchItems();
   }, []);
 
-  if (loading) {
-    return <Loading />;
+  if (loading || error) {
+    return <Loading message={error || "Loading..."} />;
   }
 
   return (

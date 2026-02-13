@@ -24,7 +24,7 @@ function SearchCard({ item }) {
             </h1>
           </Link>
           <p>
-            {"⭐".repeat(item.rating)}☆ {item.rating} (
+            {"⭐".repeat(Math.floor(item.rating))}☆ {item.rating} (
             {Math.round(item.price * 10)} ratings)
           </p>
           <div className="flex items-center gap-3 text-3xl font-bold">
